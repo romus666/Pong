@@ -1,0 +1,45 @@
+﻿@model Website.Models.Game.ResultGameModel
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        @if (Model.FinishedGame != null)
+        {
+            <div class="finished">
+                <div class="col-md-6">
+                    <h3>Result</h3>
+                </div>
+
+                <div class="col-md-6">
+                    <h4>@Model.FinishedGame.PlayerOneName</h4>
+                    <span class="player-score">@Model.FinishedGame.PlayerOneScore</span>
+                </div>
+                <div class="col-md-6">
+                    <h4>@Model.FinishedGame.PlayerTwoName</h4>
+                    <span class="player-score">@Model.FinishedGame.PlayerTwoScore</span>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        @if (Model.StatisticsGame != null)
+            {
+            <div class="col-md-12">
+                <div class="statistics">
+                    <h3>Statistics</h3>
+                    <ul class="">
+                        @foreach (var item in Model.StatisticsGame.Players)
+                        {
+                            <li>
+                                <div>@item.Name</div>
+                                <div>@item.Win</div>
+                                <div>@item.Lose</div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>

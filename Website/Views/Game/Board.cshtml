@@ -1,0 +1,28 @@
+﻿@model Website.Models.Game.GameModel
+@{
+    ViewBag.Title = "Game";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.HiddenFor(x => x.PlayerOneAi, new { id = "playerOneAI" })
+@Html.HiddenFor(x => x.PlayerTwoAi, new { id = "playerTwoAI"})
+@Html.HiddenFor(x => x.WinScore, new { id = "winscore" })
+@Html.HiddenFor(x => x.Game, new { id = "gameId" })
+<div class="board-content">
+
+
+    
+    <div id="game">
+        <div class="players">
+            <div class="playername1">@Model.PlayerOneName</div>
+            <div class="playername2">@Model.PlayerTwoName</div>
+        </div>
+
+        <div id="points">
+            <span class="player1">0</span>
+            <span class=""> : </span>
+            <span class="player2">0</span>
+        </div>
+        <canvas id="gameboard" width="900" height="600"></canvas>
+    </div>
+</div>

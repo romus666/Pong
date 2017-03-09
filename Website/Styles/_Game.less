@@ -1,0 +1,55 @@
+﻿#game {
+    text-align: center;
+    width: 100%;
+
+    #gameboard {
+        /*background-color: darkgreen;*/
+    }
+
+    .players {
+        width: 900px;
+        display: inline-block;
+
+        > div {
+            font-size: 50px;
+            width:50%;
+            float:left;
+        }
+    }
+
+    #points {
+        padding: 20px 20px;
+
+        span {
+            font-size: 4.0rem;
+        }
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+.board-content {
+    .finished{
+        .player-score{
+            font-size:1.8rem;
+        }
+    }
+    .statistics {
+        padding-top:20px;
+        border-top:2px solid black;
+        ul {
+            li {
+                list-style:none;
+                div {
+                    font-size:1.8rem;
+                    width: 30%;
+                    float: left;
+                }
+            }
+        }
+    }
+}

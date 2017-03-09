@@ -1,0 +1,78 @@
+﻿@model Website.Models.Game.GameModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="game-settings">
+    <h2>Pong</h2>
+
+    <div class="game-start">
+        @Html.ActionLink("Pong", "Board", "Game", null, new { @class = "button" })
+
+    </div>
+    <div class="player-form">
+        @using (Html.BeginForm("Board", "Game", FormMethod.Post,
+                                                             new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Game Settings</legend>
+                <div class="editor-container">
+                    <div class="editor-label">
+                        @Html.LabelFor(m => m.WinScore)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(m => m.WinScore, new { @type = "number", @min = "1", @max = "50", @Value = "10" }) 
+                    </div>
+                </div>
+
+                <legend>Player 1</legend>
+                <div class="editor-container">
+                    <div class="editor-label">
+                        @Html.LabelFor(m => m.PlayerOneName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(m => m.PlayerOneName, new { placeholder = "name" })
+                    </div>
+                    <div class="editor-field">
+                        @Html.PasswordFor(m => m.PlayerOnePassword, new { placeholder = "password" })
+                        @Html.ValidationMessage("PlayerOneValidation")
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <div class="editor-label">
+                        @Html.LabelFor(m => m.PlayerOneAi)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(m => m.PlayerOneAi)
+                    </div>
+                </div>
+                <legend>Player 2</legend>
+                <div class="editor-container">
+                    <div class="editor-label">
+                        @Html.LabelFor(m => m.PlayerTwoName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(m => m.PlayerTwoName, new { placeholder = "name" })
+                    </div>
+                    <div class="editor-field">
+                        @Html.PasswordFor(m => m.PlayerTwoPassword, new { placeholder = "password" })
+                        @Html.ValidationMessage("PlayerTwoValidation")
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <div class="editor-label">
+                        @Html.LabelFor(m => m.PlayerTwoAi)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(m => m.PlayerTwoAi)
+                    </div>
+                </div>
+            </fieldset>
+            <div class="player-submit">
+                <input type="submit" name="SaveButton" value="Play" class="button" />
+            </div>
+        }
+    </div>
+</div>
